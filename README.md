@@ -1,8 +1,9 @@
-# [SQL_Analysis_Project]
-###  Performed end-to-end data analysis using SQL to clean, explore, and analyze a multi-table dataset. Created KPIs such as revenue, customer retention, product performance, and sales trends using joins, CTEs, and window functions. Delivered actionable insights to support data-driven decision-making and built a final summary report for stakeholders.
+# [SQL Analysis Project]()
+
+> Performed end-to-end data analysis using SQL to clean, explore, and analyze a multi-table dataset. Created KPIs such as revenue, customer retention, product performance, and sales trends using joins, CTEs, and window functions. Delivered actionable insights to support data-driven decision-making and built a final summary report for stakeholders. 
 ## Trend Analysis - (Growth Per Year)
 
-### A trend analysis of year-over-year growth highlights how performance has changed annually and helps identify whether progress is accelerating, slowing, or remaining stable over time. By comparing the values from each year, we can observe patterns such as consistent growth, fluctuations, or periods of decline. This type of analysis makes it easier to understand long-term direction, evaluate the effectiveness of strategies, and forecast future outcomes. Overall, the year-by-year growth trend provides valuable insight into both the sustainability and momentum of performance over the analyzed period.
+A trend analysis of year-over-year growth highlights how performance has changed annually and helps identify whether progress is accelerating, slowing, or remaining stable over time. By comparing the values from each year, we can observe patterns such as consistent growth, fluctuations, or periods of decline. This type of analysis makes it easier to understand long-term direction, evaluate the effectiveness of strategies, and forecast future outcomes. Overall, the year-by-year growth trend provides valuable insight into both the sustainability and momentum of performance over the analyzed period.
 ```sql
 select YEAR(order_date) As Order_Year,
 MONTH(order_date) As Order_Month,
@@ -14,9 +15,14 @@ where order_date is not null
 Group by YEAR(order_date),MONTH(order_date)
 order by YEAR(order_date),MONTH(order_date)
 ```
-## Cumulative  Analysis- - (Progress Of bussiness - Running Growth Per Year)
+`RESULT:-`
 
-### A cumulative analysis of the business’s running growth per year provides a comprehensive view of long-term progress by continuously adding each year’s results to the previous totals. Instead of evaluating individual yearly changes in isolation, this approach shows how the business has built momentum over time and how each year contributes to overall performance. By tracking cumulative growth, we can clearly identify upward or downward trajectories, understand the strength and sustainability of expansion, and assess how effectively the business is compounding its gains. This type of analysis offers a fuller picture of progress, helping in strategic planning, forecasting, and evaluating whether the business is moving steadily toward its long-term goals.
+![alt text](https://github.com/mrunalwankhade/SQL_Analysis_Project/blob/772a2af27c1c8e1a026107efec480c299855b8c8/trend%20analysis%20.jpg)
+
+---
+## Cumulative  Analysis - (Progress Of bussiness - Running Growth Per Year)
+
+A cumulative analysis of the business’s running growth per year provides a comprehensive view of long-term progress by continuously adding each year’s results to the previous totals. Instead of evaluating individual yearly changes in isolation, this approach shows how the business has built momentum over time and how each year contributes to overall performance. By tracking cumulative growth, we can clearly identify upward or downward trajectories, understand the strength and sustainability of expansion, and assess how effectively the business is compounding its gains. This type of analysis offers a fuller picture of progress, helping in strategic planning, forecasting, and evaluating whether the business is moving steadily toward its long-term goals.
 
 ```sql
 select order_date,
@@ -32,8 +38,11 @@ from gold.fact_sales
 where order_date is not null
 group by Datetrunc(Year,order_date)
 )t
-
 ```
+`RESULT:-`
+
+![alt text](https://github.com/mrunalwankhade/SQL_Analysis_Project/blob/772a2af27c1c8e1a026107efec480c299855b8c8/trend%20analysis%20.jpg)
+
 
 
 ----------Performance  Analysis----------(compare each year each product with previous year and avg of sales with all years.)
